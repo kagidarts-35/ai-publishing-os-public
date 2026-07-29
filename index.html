@@ -12,6 +12,7 @@
     .hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:linear-gradient(140deg,#143d2a,#1f6544);color:#fff;border-radius:18px;padding:30px;box-shadow:0 14px 36px #17362322}.hero p{margin:0 0 8px;color:#a9cfba;font-size:10px;font-weight:800;letter-spacing:.15em}.hero h1{margin:0 0 8px;font:500 28px Georgia,"Yu Mincho",serif}.hero span{font-size:12px;color:#c8dcd0}.primary{border:0;border-radius:9px;background:var(--orange);color:white;padding:13px 18px;font-weight:700;font-size:11px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.stat{padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}.stat span{display:block;font-size:9px;color:var(--muted)}.stat strong{display:block;margin-top:8px;font:500 20px Georgia}
     .notice{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;background:#fff6ec;border-left:4px solid var(--orange);border-radius:8px;color:#6c503f;font-size:11px;line-height:1.6;margin-bottom:18px}
     .downloads{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 18px}.downloads h2{margin:0 0 5px;font:500 18px Georgia,"Yu Mincho",serif}.downloads>p{margin:0 0 15px;color:var(--muted);font-size:10px}.download-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.download{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;background:#fbfcfb}.download:hover{border-color:#85a391;background:#f2f8f4}.download strong{display:block;font-size:11px}.download small{display:block;color:var(--muted);font-size:9px;margin-top:4px}.download b{color:var(--green);font-size:18px}
+    .book-box{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}.book-box-head{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:19px 20px;background:#f4f8f5}.book-box-head h2{margin:3px 0 4px;font:500 18px Georgia,"Yu Mincho",serif}.book-box-head p{margin:0;color:var(--muted);font-size:9px}.book-no{color:#347151;font-size:8px;font-weight:800}.book-tabs{display:flex;padding:0 16px;border-top:1px solid var(--line)}.book-tabs button{padding:12px 14px;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);font-size:10px;font-weight:700}.book-tabs button.active{color:var(--green);border-bottom-color:var(--orange)}.book-overview{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;padding:20px}.book-overview img{width:90px;border-radius:4px;box-shadow:5px 7px 14px #182f2026}.book-overview h3{margin:0 0 6px;font:500 15px Georgia,"Yu Mincho",serif}.book-overview p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}.panel-hidden{display:none}
     .section{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:14px;overflow:hidden}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;background:#f9faf9;border-bottom:1px solid var(--line)}.section-head h2{margin:0 0 4px;font:500 17px Georgia,"Yu Mincho",serif}.section-head p{margin:0;color:var(--muted);font-size:10px}.section-head button,.copy{border:1px solid #d6e0d9;background:#fff;color:#326047;border-radius:7px;padding:8px 11px;font-size:9px;font-weight:700;white-space:nowrap}
     .field{display:grid;grid-template-columns:190px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid #edf1ee}.field:last-child{border:0}.field label{font-size:10px;font-weight:700;color:#69776e}.value{font-size:11px;line-height:1.7;white-space:pre-line}.note{display:block;color:#bd6939;font-size:8px;margin-top:4px}.blank{color:#99a29c;background:#fbfcfb}.footer{text-align:center;color:#89958e;font-size:9px;margin-top:24px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#102b1e;color:#fff;border-radius:30px;padding:11px 18px;font-size:11px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
     @media(max-width:720px){.shell{padding:20px 13px 50px}.top{align-items:flex-start}.safe{font-size:8px}.hero{grid-template-columns:1fr;padding:22px}.hero h1{font-size:23px}.hero .primary{width:100%}.summary{grid-template-columns:1fr 1fr}.download-grid{grid-template-columns:1fr}.section-head{flex-direction:column}.section-head button{width:100%}.field{grid-template-columns:1fr auto;gap:7px}.field label{grid-column:1/-1}.copy{grid-column:2;grid-row:2}.value{grid-column:1;grid-row:2}}
@@ -31,7 +32,12 @@
       <div class="stat"><span>商品</span><strong>1冊</strong></div><div class="stat"><span>入力項目</span><strong>39</strong></div><div class="stat"><span>キーワード</span><strong>7件</strong></div><div class="stat"><span>品質スコア</span><strong>92</strong></div>
     </section>
     <div class="notice"><b>!</b><span>権利、AI生成コンテンツ、価格、カテゴリー、プレビューは実際の内容を確認してKDP画面で選択してください。このサイトはAmazonへのログイン・アップロード・出版操作を行いません。</span></div>
-    <section class="downloads">
+    <section class="book-box">
+      <header class="book-box-head"><div><span class="book-no">BOOK 001・公開済み</span><h2>ChatGPT仕事術 実務テンプレ100選</h2><p>この本のコピペ情報・表紙・本文・ZIPを1か所に保管しています。</p></div></header>
+      <nav class="book-tabs" aria-label="この本の資料"><button class="active" data-tab="overview">概要</button><button data-tab="copy">KDPコピペ</button><button data-tab="files">表紙・本文・ZIP</button></nav>
+      <div class="book-overview" data-panel="overview"><img src="cover.jpg" alt="本の表紙"><div><h3>この1冊の保管場所</h3><p>次の本を作成しても混ざらないように、必要な情報とファイルを本ごとに分けています。</p></div></div>
+    </section>
+    <section class="downloads panel-hidden" data-panel="files">
       <h2>出版ファイルをダウンロード</h2>
       <p>KDPへの登録に使うファイルです。迷った場合は「出版一式ZIP」を保存してください。</p>
       <div class="download-grid">
@@ -40,7 +46,7 @@
         <a class="download" href="publishing-package.zip" download><span><strong>出版一式ZIP</strong><small>本文・表紙・入力情報一式</small></span><b>↓</b></a>
       </div>
     </section>
-    <div id="sections"></div>
+    <div id="sections" class="panel-hidden" data-panel="copy"></div>
     <p class="footer">AI実務ラボ Publishing OS — 人が確認し、価値ある商品を安全に出版するための支援ツール</p>
   </main>
   <div class="toast" id="toast">コピーしました</div>
@@ -72,6 +78,10 @@
       root.append(article);
     });
     document.querySelector("#copy-all").onclick=()=>copy(sections.map(sectionText).join("\\n\\n"));
+    document.querySelectorAll("[data-tab]").forEach(button=>button.onclick=()=>{
+      document.querySelectorAll("[data-tab]").forEach(item=>item.classList.toggle("active",item===button));
+      document.querySelectorAll("[data-panel]").forEach(panel=>panel.classList.toggle("panel-hidden",panel.dataset.panel!==button.dataset.tab));
+    });
   </script>
 </body>
 </html>
