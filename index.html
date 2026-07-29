@@ -14,6 +14,7 @@
     .downloads{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 18px}.downloads h2{margin:0 0 5px;font:500 18px Georgia,"Yu Mincho",serif}.downloads>p{margin:0 0 15px;color:var(--muted);font-size:10px}.download-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.download{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;background:#fbfcfb}.download:hover{border-color:#85a391;background:#f2f8f4}.download strong{display:block;font-size:11px}.download small{display:block;color:var(--muted);font-size:9px;margin-top:4px}.download b{color:var(--green);font-size:18px}
     .book-box{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}.book-box-head{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:19px 20px;background:#f4f8f5}.book-box-head h2{margin:3px 0 4px;font:500 18px Georgia,"Yu Mincho",serif}.book-box-head p{margin:0;color:var(--muted);font-size:9px}.book-no{color:#347151;font-size:8px;font-weight:800}.book-tabs{display:flex;padding:0 16px;border-top:1px solid var(--line)}.book-tabs button{padding:12px 14px;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);font-size:10px;font-weight:700}.book-tabs button.active{color:var(--green);border-bottom-color:var(--orange)}.book-overview{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;padding:20px}.book-overview img{width:90px;border-radius:4px;box-shadow:5px 7px 14px #182f2026}.book-overview h3{margin:0 0 6px;font:500 15px Georgia,"Yu Mincho",serif}.book-overview p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}.panel-hidden{display:none}
     .public-shelf{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}.public-book{padding:10px;text-align:left;border:1px solid var(--line);border-radius:10px;background:#fff}.public-book.active{border-color:#659276;box-shadow:0 5px 16px #1736231c}.public-book img{width:100%;aspect-ratio:5/8;object-fit:cover;border-radius:4px}.public-book span{display:block;margin-top:7px;color:#a0623d;font-size:7px;font-weight:800}.public-book strong{display:block;margin-top:3px;font-size:8px;line-height:1.5}.public-book small{color:#47805f;font-size:7px}
+    .research-box{margin:0 20px 20px;padding:14px 16px;border-left:4px solid var(--orange);border-radius:8px;background:#fff7ef}.research-box strong{font:18px Georgia;color:var(--green)}.research-box b{margin-left:10px;color:#b85a2b;font-size:9px}.research-box p{margin:7px 0 4px;color:#5f6d65;font-size:10px;line-height:1.7}.research-box small{color:#927767;font-size:8px}
     .section{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:14px;overflow:hidden}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;background:#f9faf9;border-bottom:1px solid var(--line)}.section-head h2{margin:0 0 4px;font:500 17px Georgia,"Yu Mincho",serif}.section-head p{margin:0;color:var(--muted);font-size:10px}.section-head button,.copy{border:1px solid #d6e0d9;background:#fff;color:#326047;border-radius:7px;padding:8px 11px;font-size:9px;font-weight:700;white-space:nowrap}
     .field{display:grid;grid-template-columns:190px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid #edf1ee}.field:last-child{border:0}.field label{font-size:10px;font-weight:700;color:#69776e}.value{font-size:11px;line-height:1.7;white-space:pre-line}.note{display:block;color:#bd6939;font-size:8px;margin-top:4px}.blank{color:#99a29c;background:#fbfcfb}.footer{text-align:center;color:#89958e;font-size:9px;margin-top:24px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#102b1e;color:#fff;border-radius:30px;padding:11px 18px;font-size:11px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
     @media(max-width:720px){.shell{padding:20px 13px 50px}.top{align-items:flex-start}.safe{font-size:8px}.hero{grid-template-columns:1fr;padding:22px}.hero h1{font-size:23px}.hero .primary{width:100%}.summary{grid-template-columns:1fr 1fr}.public-shelf{display:flex;overflow:auto}.public-book{min-width:130px}.download-grid{grid-template-columns:1fr}.section-head{flex-direction:column}.section-head button{width:100%}.field{grid-template-columns:1fr auto;gap:7px}.field label{grid-column:1/-1}.copy{grid-column:2;grid-row:2}.value{grid-column:1;grid-row:2}}
@@ -37,7 +38,7 @@
     <section class="book-box">
       <header class="book-box-head"><div><span class="book-no" id="book-status">BOOK 001・公開済み</span><h2 id="book-title">ChatGPT仕事術 実務テンプレ100選</h2><p>この本のコピペ情報・表紙・本文・ZIPを1か所に保管しています。</p></div></header>
       <nav class="book-tabs" aria-label="この本の資料"><button class="active" data-tab="overview">概要</button><button data-tab="copy">KDPコピペ</button><button data-tab="files">表紙・本文・ZIP</button></nav>
-      <div class="book-overview" data-panel="overview"><img id="book-cover" src="cover.jpg" alt="本の表紙"><div><h3 id="overview-title">この1冊の保管場所</h3><p>次の本を作成しても混ざらないように、必要な情報とファイルを本ごとに分けています。</p></div></div>
+      <div data-panel="overview"><div class="book-overview"><img id="book-cover" src="cover.jpg" alt="本の表紙"><div><h3 id="overview-title">この1冊の保管場所</h3><p>次の本を作成しても混ざらないように、必要な情報とファイルを本ごとに分けています。</p></div></div><div class="research-box"><strong id="research-score">企画評価 72/100</strong><b id="research-decision">販売後の反応を確認</b><p id="research-text"></p><small>公開情報による需要・競合・検索意図の評価です。実販売数・売上は未確認です。</small></div></div>
     </section>
     <section class="downloads panel-hidden" data-panel="files">
       <h2>出版ファイルをダウンロード</h2>
@@ -70,16 +71,16 @@
         ["言語","日本語"],["AI生成コンテンツ申告","AI生成コンテンツを使用。本文と表紙を人間が編集・事実確認・品質確認済み。","実際の制作方法に合う選択肢を選ぶ"],["DRM","有効にする（推奨）"],["KDP Select","販売方針を確認して選択","独占条件を確認"],["出版地域","全世界の権利","実際に権利を保有する場合"],["価格","980円","推定・市場価格未確認"],["原稿ファイル","01_manuscript.docx"],["表紙ファイル","02_cover.jpg"]]}
     ];
     const bookCatalog=[
-      {volume:1,slug:"",title:"ChatGPT仕事術 実務テンプレ100選",status:"公開済み"},
-      {volume:2,slug:"books/eigyo-ai/",title:"営業AI 実務テンプレ100選",status:"出版準備完了"},
-      {volume:3,slug:"books/tenpo-unei-ai/",title:"店舗運営AI 実務テンプレ100選",status:"出版準備完了"},
-      {volume:4,slug:"books/kanrishoku-ai/",title:"管理職AI 実務テンプレ100選",status:"出版準備完了"},
-      {volume:5,slug:"books/nippo-ai/",title:"日報AI 実務テンプレ100選",status:"出版準備完了"}
+      {volume:1,slug:"",title:"ChatGPT仕事術 実務テンプレ100選",status:"公開済み",score:72,decision:"販売後の反応を確認",research:"生成AI仕事術の需要は確認できる一方、総合型の競合が多いため差別化は要改善。"},
+      {volume:2,slug:"books/eigyo-ai/",title:"営業AI 実務テンプレ100選",status:"出版準備完了",score:84,decision:"優先制作・販売候補",research:"営業職に用途を限定し、商談準備から案件改善まで一連の流れを収録。検索意図が明確。"},
+      {volume:3,slug:"books/tenpo-unei-ai/",title:"店舗運営AI 実務テンプレ100選",status:"出版準備完了",score:87,decision:"優先制作・販売候補",research:"店舗日報の手入力・報告粒度の差や、売場・在庫・接客支援へのAI活用事例を確認。専門性が高い。"},
+      {volume:4,slug:"books/kanrishoku-ai/",title:"管理職AI 実務テンプレ100選",status:"出版準備完了",score:83,decision:"優先制作・販売候補",research:"管理職の定型業務と生成AIの相性は高い。評価・個人情報の扱いを強く注意喚起する必要あり。"},
+      {volume:5,slug:"books/nippo-ai/",title:"日報AI 実務テンプレ100選",status:"出版準備完了",score:86,decision:"優先制作・販売候補",research:"日報・週報の作成時間と記載品質のばらつきが実務課題として確認でき、解決内容が明確。"}
     ];
     const root=document.querySelector("#sections"),toast=document.querySelector("#toast");
     let currentKdpText="";
     function copy(text){navigator.clipboard.writeText(text);toast.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1500)}
-    function sectionText(section){return "【"+section.title+"】\\n"+section.fields.map(f=>f[0]+"："+f[1]).join("\\n")}
+    function sectionText(section){return "【"+section.title+"】\n"+section.fields.map(f=>f[0]+"："+f[1]).join("\n")}
     function renderSections(sectionList){
       root.innerHTML="";
       sectionList.forEach(section=>{
@@ -91,18 +92,19 @@
       });
     }
     function parseKdp(text){
-      return text.split(/\\n(?=【)/).filter(Boolean).map(block=>{const lines=block.trim().split("\\n");return{title:lines.shift().replaceAll("【","").replaceAll("】",""),desc:"この本専用のKDP入力情報です。",fields:lines.filter(Boolean).map(line=>{const at=line.indexOf("：");return at<0?[line,line]:[line.slice(0,at),line.slice(at+1)]})}});
+      return text.split(/\n(?=【)/).filter(Boolean).map(block=>{const lines=block.trim().split("\n");return{title:lines.shift().replaceAll("【","").replaceAll("】",""),desc:"右側のボタンで1項目ずつコピーできます。",fields:lines.filter(Boolean).map(line=>{const at=line.indexOf("：");return at<0?["内容紹介（続き）",line]:[line.slice(0,at),line.slice(at+1)]})}});
     }
     async function selectBook(book){
       document.querySelectorAll(".public-book").forEach(button=>button.classList.toggle("active",Number(button.dataset.volume)===book.volume));
       document.querySelector("#book-status").textContent=`BOOK ${String(book.volume).padStart(3,"0")}・${book.status}`;
       document.querySelector("#book-title").textContent=book.title;document.querySelector("#overview-title").textContent=book.title;
+      document.querySelector("#research-score").textContent=`企画評価 ${book.score}/100`;document.querySelector("#research-decision").textContent=book.decision;document.querySelector("#research-text").textContent=book.research;
       document.querySelector("#book-cover").src=book.slug+"cover.jpg";
       document.querySelector("#download-manuscript").href=book.slug+"manuscript.docx";document.querySelector("#download-cover").href=book.slug+"cover.jpg";document.querySelector("#download-package").href=book.slug+"publishing-package.zip";
       try{currentKdpText=await fetch(book.slug+"kdp-copy.txt").then(response=>response.text());renderSections(parseKdp(currentKdpText));}catch{currentKdpText=sections.map(sectionText).join("\\n\\n");renderSections(sections);}
     }
     const shelf=document.querySelector("#public-shelf");
-    bookCatalog.forEach(book=>{const button=document.createElement("button");button.className="public-book";button.dataset.volume=book.volume;button.innerHTML=`<img src="${book.slug}cover.jpg" alt=""><span>BOOK ${String(book.volume).padStart(3,"0")}</span><strong>${book.title}</strong><small>${book.status}</small>`;button.onclick=()=>selectBook(book);shelf.append(button)});
+    bookCatalog.forEach(book=>{const button=document.createElement("button");button.className="public-book";button.dataset.volume=book.volume;button.innerHTML=`<img src="${book.slug}cover.jpg" alt=""><span>BOOK ${String(book.volume).padStart(3,"0")}</span><strong>${book.title}</strong><small>${book.status}・${book.score}点</small>`;button.onclick=()=>selectBook(book);shelf.append(button)});
     selectBook(bookCatalog[0]);
     document.querySelector("#copy-all").onclick=()=>copy(currentKdpText);
     document.querySelectorAll("[data-tab]").forEach(button=>button.onclick=()=>{
