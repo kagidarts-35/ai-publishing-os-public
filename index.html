@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI実務ラボのKDP入力情報をワンクリックでコピーできる出版支援画面">
+  <title>AI実務ラボ Publishing OS</title>
+  <style>
+    :root{--ink:#15231b;--muted:#718078;--line:#dfe6e1;--green:#174f35;--orange:#e3773d;--paper:#f4f7f4}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+    button{font:inherit;cursor:pointer}.shell{max-width:1180px;margin:auto;padding:34px 22px 70px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:#153d2b;color:#fff;font:700 14px Georgia}.brand strong{display:block;font-family:Georgia,"Yu Mincho",serif}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.safe{padding:7px 10px;border-radius:20px;background:#e5f2e9;color:#357151;font-size:10px;font-weight:700}
+    .hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:linear-gradient(140deg,#143d2a,#1f6544);color:#fff;border-radius:18px;padding:30px;box-shadow:0 14px 36px #17362322}.hero p{margin:0 0 8px;color:#a9cfba;font-size:10px;font-weight:800;letter-spacing:.15em}.hero h1{margin:0 0 8px;font:500 28px Georgia,"Yu Mincho",serif}.hero span{font-size:12px;color:#c8dcd0}.primary{border:0;border-radius:9px;background:var(--orange);color:white;padding:13px 18px;font-weight:700;font-size:11px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.stat{padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}.stat span{display:block;font-size:9px;color:var(--muted)}.stat strong{display:block;margin-top:8px;font:500 20px Georgia}
+    .notice{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;background:#fff6ec;border-left:4px solid var(--orange);border-radius:8px;color:#6c503f;font-size:11px;line-height:1.6;margin-bottom:18px}
+    .section{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:14px;overflow:hidden}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;background:#f9faf9;border-bottom:1px solid var(--line)}.section-head h2{margin:0 0 4px;font:500 17px Georgia,"Yu Mincho",serif}.section-head p{margin:0;color:var(--muted);font-size:10px}.section-head button,.copy{border:1px solid #d6e0d9;background:#fff;color:#326047;border-radius:7px;padding:8px 11px;font-size:9px;font-weight:700;white-space:nowrap}
+    .field{display:grid;grid-template-columns:190px 1fr auto;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid #edf1ee}.field:last-child{border:0}.field label{font-size:10px;font-weight:700;color:#69776e}.value{font-size:11px;line-height:1.7;white-space:pre-line}.note{display:block;color:#bd6939;font-size:8px;margin-top:4px}.blank{color:#99a29c;background:#fbfcfb}.footer{text-align:center;color:#89958e;font-size:9px;margin-top:24px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#102b1e;color:#fff;border-radius:30px;padding:11px 18px;font-size:11px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:720px){.shell{padding:20px 13px 50px}.top{align-items:flex-start}.safe{font-size:8px}.hero{grid-template-columns:1fr;padding:22px}.hero h1{font-size:23px}.hero .primary{width:100%}.summary{grid-template-columns:1fr 1fr}.section-head{flex-direction:column}.section-head button{width:100%}.field{grid-template-columns:1fr auto;gap:7px}.field label{grid-column:1/-1}.copy{grid-column:2;grid-row:2}.value{grid-column:1;grid-row:2}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><span class="mark">AI</span><div><strong>AI実務ラボ</strong><small>Publishing OS</small></div></div>
+      <span class="safe">ログイン不要</span>
+    </header>
+    <section class="hero">
+      <div><p>KDP INPUT CENTER</p><h1>KDP入力情報をすべてコピペ</h1><span>Amazon KDPの入力順に並んでいます。各項目を確認してコピーしてください。</span></div>
+      <button class="primary" id="copy-all">全項目をまとめてコピー</button>
+    </section>
+    <section class="summary">
+      <div class="stat"><span>商品</span><strong>1冊</strong></div><div class="stat"><span>入力項目</span><strong>39</strong></div><div class="stat"><span>キーワード</span><strong>7件</strong></div><div class="stat"><span>品質スコア</span><strong>92</strong></div>
+    </section>
+    <div class="notice"><b>!</b><span>権利、AI生成コンテンツ、価格、カテゴリー、プレビューは実際の内容を確認してKDP画面で選択してください。このサイトはAmazonへのログイン・アップロード・出版操作を行いません。</span></div>
+    <div id="sections"></div>
+    <p class="footer">AI実務ラボ Publishing OS — 人が確認し、価値ある商品を安全に出版するための支援ツール</p>
+  </main>
+  <div class="toast" id="toast">コピーしました</div>
+  <script>
+    const sections=[
+      {title:"タイトル情報",desc:"KDP「Kindle本の詳細」の最初の入力欄です。",fields:[
+        ["本のタイトル","ChatGPT仕事術 実務テンプレ100選"],["タイトルのフリガナ","チャットジーピーティーシゴトジュツ ジツムテンプレヒャクセン"],["タイトルのローマ字","ChatGPT Shigotojutsu Jitsumu Tenpure Hyakusen"],
+        ["サブタイトル","文章作成・営業・会議・分析まで、すぐ使える実践プロンプト集"],["サブタイトルのフリガナ","ブンショウサクセイ エイギョウ カイギ ブンセキマデ スグツカエルジッセンプロンプトシュウ"],["サブタイトルのローマ字","Bunsho Sakusei Eigyo Kaigi Bunseki Made Sugu Tsukaeru Jissen Prompt Shu"],
+        ["レーベル","AI実務ラボ"],["レーベルのフリガナ","エーアイジツムラボ"],["レーベルのローマ字","AI Jitsumu Lab"]]},
+      {title:"シリーズ・版・著者",desc:"シリーズ第1作として登録する場合の推奨値です。",fields:[
+        ["シリーズのタイトル","AI実務テンプレ100選","シリーズ化する場合のみ"],["巻","1","シリーズ化する場合のみ"],["シリーズタイトルのフリガナ","エーアイジツムテンプレヒャクセン","シリーズ化する場合のみ"],["シリーズ名（ローマ字）","AI Jitsumu Template 100","シリーズ化する場合のみ"],["版","1"],["主な著者等・氏名","AI実務ラボ"],["主な著者等・フリガナ","エーアイジツムラボ"],["主な著者等・ローマ字","AI Jitsumu Lab"],["追加の著者等","なし","入力不要"]]},
+      {title:"内容紹介・権利・対象読者",desc:"内容紹介はそのまま貼り付けできます。",fields:[
+        ["内容紹介","毎日の仕事でChatGPTをどう使えばよいか迷う方へ。\\n\\n文章作成、営業、資料・企画、SNS・マーケティング、会議・議事録、顧客対応、分析・改善、店舗・現場業務、マネジメント、AI仕事術の10分野から、すぐ使える100の実務テンプレートを収録しました。\\n\\n各テンプレートには、使用場面、ゴール、必要入力、出力形式、判断条件、コピペ用プロンプト、入力例、使用時の注意、精度を上げる追加指示を掲載。AIに判断を丸投げせず、担当者が安全に初稿を作り、確認して仕上げられる構成です。\\n\\nメール、日報、議事録、売上分析、口コミ返信、企画書、1on1など、日々の業務を効率化したいビジネスパーソンにおすすめの一冊です。"],
+        ["出版に必要な権利","私は著作権者であり、出版に関して必要な権利を保有しています。","権利保有を確認して選択"],["露骨な性的表現","いいえ"],["対象年齢・最少年齢","空欄","児童向けではないため"],["対象年齢・最高年齢","空欄","児童向けではないため"]]},
+      {title:"マーケット・カテゴリー・キーワード",desc:"カテゴリーはKDPの最新候補から最も近いものを選びます。",fields:[
+        ["主なマーケットプレイス","Amazon.co.jp"],["カテゴリー候補1","ビジネス・経済 > ビジネススキル > 仕事術"],["カテゴリー候補2","コンピュータ・IT > AI・機械学習"],["カテゴリー候補3","ビジネス・経済 > マネジメント・人材管理","任意"],
+        ["キーワード1","生成AI 業務効率化"],["キーワード2","ChatGPT プロンプト 実践"],["キーワード3","仕事 時短 テンプレート"],["キーワード4","営業 メール 作成"],["キーワード5","議事録 資料作成 AI"],["キーワード6","店舗 管理職 DX"],["キーワード7","ビジネス AI 活用術"]]},
+      {title:"コンテンツ・価格設定",desc:"ファイルをアップロードした後、KDPで最終確認します。",fields:[
+        ["言語","日本語"],["AI生成コンテンツ申告","AI生成コンテンツを使用。本文と表紙を人間が編集・事実確認・品質確認済み。","実際の制作方法に合う選択肢を選ぶ"],["DRM","有効にする（推奨）"],["KDP Select","販売方針を確認して選択","独占条件を確認"],["出版地域","全世界の権利","実際に権利を保有する場合"],["価格","980円","推定・市場価格未確認"],["原稿ファイル","01_manuscript.docx"],["表紙ファイル","02_cover.jpg"]]}
+    ];
+    const root=document.querySelector("#sections"),toast=document.querySelector("#toast");
+    function copy(text){navigator.clipboard.writeText(text);toast.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1500)}
+    function sectionText(section){return "【"+section.title+"】\\n"+section.fields.map(f=>f[0]+"："+f[1]).join("\\n")}
+    sections.forEach(section=>{
+      const article=document.createElement("section");article.className="section";
+      article.innerHTML=`<header class="section-head"><div><h2>${section.title}</h2><p>${section.desc}</p></div><button>この欄を一括コピー</button></header><div>${section.fields.map((f,i)=>`<div class="field ${f[1]==="空欄"||f[1]==="なし"?"blank":""}"><label>${f[0]}</label><div class="value">${f[1].replaceAll("\\n","<br>")}${f[2]?`<span class="note">${f[2]}</span>`:""}</div><button class="copy" data-i="${i}">コピー</button></div>`).join("")}</div>`;
+      article.querySelector(".section-head button").onclick=()=>copy(sectionText(section));
+      article.querySelectorAll(".copy").forEach(btn=>btn.onclick=()=>{const f=section.fields[Number(btn.dataset.i)];copy(f[1]==="空欄"||f[1]==="なし"?"":f[1])});
+      root.append(article);
+    });
+    document.querySelector("#copy-all").onclick=()=>copy(sections.map(sectionText).join("\\n\\n"));
+  </script>
+</body>
+</html>
